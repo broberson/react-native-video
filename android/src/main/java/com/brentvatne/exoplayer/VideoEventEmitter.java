@@ -12,6 +12,7 @@ import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.emsg.EventMessage;
 import com.google.android.exoplayer2.metadata.id3.Id3Frame;
 import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
+import com.google.android.exoplayer2.metadata.icy.IcyInfo;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -280,6 +281,13 @@ class VideoEventEmitter {
                 map.putString("value", eventMessage.value);
                 metadataArray.pushMap(map);
                 
+            } else if (entry instanceof IcyInfo) {
+                IcyInfo info = (IcyInfo) entry;
+                
+                WritableMap map = Arguments.createMap();
+                map.putString("identifier", "common/title");
+                map.putString("value", info.title);
+                metadataArray.pushMap(map);                
             }
         }
 
