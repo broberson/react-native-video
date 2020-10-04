@@ -1,3 +1,9 @@
+## About this fork
+
+This fork of react-native-video has been created to better handle ShoutCast and IceCast audio streaming.
+
+A major breaking change is that, for Android, the ExoPlayer native library is now the default. `android-exoplayer` is now just `android`, and the old `android` folder is now `android-mediaplayer`.
+
 ## react-native-video
 
 A `<Video>` component for react-native, as seen in
